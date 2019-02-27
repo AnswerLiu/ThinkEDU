@@ -1,0 +1,20 @@
+<!--_menu 作为公共模版分离出去-->
+<aside class="Hui-aside">
+
+    <div class="menu_dropdown bk_2">
+    {foreach $menu as $vo}
+        <dl id="{$vo.class}">
+            <dt><i class="Hui-iconfont">&#xe616;</i> {$vo.name}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+            {foreach $vo['child'] as $data}
+                <ul>
+                    <li><a href="/edu/public/index/{$data.link}" title="{$data.name}">{$data.name}</a></li>
+                </ul>
+            {/foreach}
+            </dd>
+        </dl>
+    {/foreach}
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<!--/_menu 作为公共模版分离出去-->

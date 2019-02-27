@@ -1,0 +1,19 @@
+"*":
+  core:
+    disabledPackages: [
+      "autocomplete-paths"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontSize: 18
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "dff6967d-8fc5-45bd-a98f-8a2302f18fb1"
+  minimap:
+    absoluteMode: true
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  welcome:
+    showOnStartup: false

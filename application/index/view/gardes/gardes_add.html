@@ -1,0 +1,94 @@
+{extend name="common/base" /}
+{block name="menu"}{/block} {//关掉菜单}
+{block name="header"}{/block} {//关掉头部}
+{block name="seo"}
+<title>{$title}</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+{/block}
+{block name="content"}
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-admin-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="garde_name" name="garde_name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学制：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="length" name="length">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学费：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="price" name="price">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>开班时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="" name="start_time" id="start_time">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>授课老师：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="" name="teacher" id="teacher">
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary disabled radius" id="submit" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+{/block}
+
+{block name="js"}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+	laydate.render({
+		elem: '#start_time',
+		type: 'datetime'
+	});
+	$('form').children().change(function(){
+		$('#submit').removeClass('disabled');
+	});
+
+	$('#submit').on('click',function(event){
+		$.ajax({
+			type:'post',
+			url:'{:url('gardes/addGarde')}',
+			data:$('#form-admin-add').serialize(),
+			dataTpye:'json',
+			success:function(data){
+				if(data.status == 1){
+					layer.msg('添加成功。',{
+						icon:1,
+						time:1000,
+						end:function(){
+							window.parent.location.reload();
+							var index = parent.layer.getFrameIndex(window.name);
+							parent.layer.close(index);
+						}
+					});
+				}else{
+					layer.msg('添加失败。',{icon:2,time:1500});
+				}
+			}
+		});
+	});
+});
+</script>
+{/block}
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

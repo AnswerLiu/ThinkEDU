@@ -1,0 +1,97 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+{load href="__STATIC__/static/h-ui/css/H-ui.min.css" /}
+{load href="__STATIC__/static/h-ui.admin/css/H-ui.login.css" /}
+{load href="__STATIC__/static/h-ui.admin/css/style.css" /}
+{load href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" /}
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script><![endif]-->
+<title>系统登录 - ThinkEDU v3.0</title>
+<meta name="keywords" content="打造最好的教学管理系统">
+<meta name="description" content="edu,ThinkEDU,Thinkedu,thinkedu,ThinkPHP,H-ui">
+</head>
+<body>
+<div class="header"></div>
+<div class="loginWraper">
+	<div id="loginform" class="loginBox">
+		<form class="form form-horizontal" action="index.html" method="post">
+			<div class="row cl">
+				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
+				<div class="formControls col-xs-8">
+					<input id="" name="user" type="text" placeholder="账户" class="input-text size-L">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+				<div class="formControls col-xs-8">
+					<input id="" name="password" type="password" placeholder="密码" class="input-text size-L">
+				</div>
+			</div>
+			<div class="row cl">
+				<div class="formControls col-xs-8 col-xs-offset-3">
+					<input class="input-text size-L" name="verify" type="text" placeholder="验证码" onblur="if(this.value==''){this.value=''}" onclick="if(this.value==''){this.value='';}" value="" style="width:150px;">
+					<img src="{:captcha_src()}" alt="captcha" id="verify_img" >
+					<a id="kanbuq" href="javascript:refreshVerify();">看不清，换一张</a>
+				</div>
+			</div>
+			<div class="row cl">
+				<div class="formControls col-xs-8 col-xs-offset-3">
+					<label for="online">
+						<input type="checkbox" name="online" id="online" value="">
+						使我保持登录状态</label>
+				</div>
+			</div>
+			<div class="row cl">
+				<div class="formControls col-xs-8 col-xs-offset-3">
+					<input name="" type="button" id="login" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="footer">Copyright ThinkEDU by ThinkEDU.v1.0</div>
+
+{load href="__STATIC__/lib/jquery/1.9.1/jquery.min.js" /}
+{load href="__STATIC__/static/h-ui/js/H-ui.js" /}
+<script>
+	$(function(){
+		// 给登录按钮添加点击事件
+		$('#login').on('click',function(event){
+			$.ajax({
+				type:'POST', //提交方式为post
+				url:'{:url('checkLogin')}', //设置提交数据处理的脚本文件地址
+				data:$('form').serialize(), //将当前表单的数据序列化以后提交
+				dataType:'json', //设置提交数据的类型为json
+				success:function(data){ //只有返回标识为1时，才会处理
+					if(data.status == 1){ //只有返回标识为1时，才允许跳转到后台
+						alert(data.message);
+						window.location.href='{:url('index/index')}';
+					}else{ //输出错误信息
+						alert(data.message);
+					}
+				}
+			})
+		})
+	})
+</script>
+<script>
+<!--  刷新验证码脚本  -->
+function refreshVerify(){
+	var ts = Date.parse(new Date()) / 1000;
+	// $('#verify_img').attr('src','/ThinkEDU/public/index.php/captcha?id='+ts); //刷新验证码
+	$('#verify_img').attr('src','/edu/public/captcha?id='+ts); //刷新验证码
+}
+</script>
+</body>
+</html>
