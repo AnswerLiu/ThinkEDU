@@ -45,20 +45,19 @@ class Base extends Controller
             echo $this->fetch('common/close');exit();
         }elseif(!empty(USER_ID)){
             $list_two = array();
-            $menu = Db::table('te_menu')
+            $list = Db::table('te_menu')
                     -> where(['pid' => 1,'status' => 1])
                     -> select();
-            foreach($menu as $key => $val){
-                $menu[$key]['child'] = array();//获取二级分类的名字
-                $menu_two = Db::table('te_menu')
+            foreach($list as $key => $val){
+                $list[$key]['child'] = array();//获取二级分类的名字
+                $list_two = Db::table('te_menu')
                         -> where(['pid' => $val['id'],'status' => 1])
                         -> select();
-                foreach($menu_two as $v){
-                    array_push($menu[$key]['child'],$v);
+                foreach($list_two as $v){
+                    array_push($list[$key]['child'],$v);
                 }
             }
-            // var_dump($menu);
-            $this->assign('menu',$menu);
+            $this->assign('list',$list);
             echo $this->fetch('common/menu');
         }
     }

@@ -2,13 +2,13 @@
 <aside class="Hui-aside">
 
     <div class="menu_dropdown bk_2">
-    {foreach $menu as $vo}
+    {foreach $list as $vo}
         <dl id="{$vo.class}">
             <dt><i class="Hui-iconfont">&#xe616;</i> {$vo.name}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
             {foreach $vo['child'] as $data}
                 <ul>
-                    <li><a href="/edu/public/index/{$data.link}" title="{$data.name}">{$data.name}</a></li>
+                    <li class="{$data.class}"><a href="{:url($data['link'])}" title="{$data.name}">{$data.name}</a></li>
                 </ul>
             {/foreach}
             </dd>

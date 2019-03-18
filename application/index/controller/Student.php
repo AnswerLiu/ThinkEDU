@@ -17,7 +17,7 @@ class Student extends Base
     /*渲染学生管理页面*/
     public function studentList(Request $request){
         $this->isLogin(); // 判断用户是否登录
-        $this->getMenu(); //渲染菜单栏
+        $this->getMenu();
         $this->view->assign('title','学生管理--ThinkEDU');
         // 统计当前记录数量
         $this->view->count = StudentModel::count();
@@ -38,7 +38,7 @@ class Student extends Base
             -> field($field)
             -> paginate(1);
 
-        $this->view->assign('list',$list);
+        $this->view->assign('stulist',$list);
         return $this->view->fetch('student_list');
     }
 }

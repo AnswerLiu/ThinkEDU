@@ -3,8 +3,13 @@
 sql文件是edu.sql,运行项目前请先导入sql文件，配置application目录下的database文件。<br />
 在使用该项目之前，请使用composer update命令更新第三方库文件。
 
-
 开发计划：<br />
 &nbsp;&nbsp;&nbsp;&nbsp;1、登录模块；(已完成)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;2、管理员相关模块；（开发中） <br />
-&nbsp;&nbsp;&nbsp;&nbsp;3、班级管理模块；（开发中）
+	![登录](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-Login.png)
+&nbsp;&nbsp;2、首页；（已完成） <br />
+
+![首页](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-Index.png)
+
+&nbsp;&nbsp;&nbsp;3、学生管理；（开发中）
+
+![学生](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-stulist.png)

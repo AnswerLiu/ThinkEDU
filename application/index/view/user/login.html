@@ -17,8 +17,8 @@
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
-<title>系统登录 - ThinkEDU v3.0</title>
-<meta name="keywords" content="打造最好的教学管理系统">
+<title>系统登录 - ThinkEDU v1.0</title>
+<meta name="keywords" content="打造最好的教务管理系统">
 <meta name="description" content="edu,ThinkEDU,Thinkedu,thinkedu,ThinkPHP,H-ui">
 </head>
 <body>
@@ -89,8 +89,8 @@
 <!--  刷新验证码脚本  -->
 function refreshVerify(){
 	var ts = Date.parse(new Date()) / 1000;
-	// $('#verify_img').attr('src','/ThinkEDU/public/index.php/captcha?id='+ts); //刷新验证码
-	$('#verify_img').attr('src','/edu/public/captcha?id='+ts); //刷新验证码
+	$('#verify_img').attr('src','/ThinkEDU/public/index.php/captcha?id='+ts); //刷新验证码
+	// $('#verify_img').attr('src','/edu/public/captcha?id='+ts); //刷新验证码
 }
 </script>
 </body>

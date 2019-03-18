@@ -47,7 +47,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				{foreach $list as $key => $vo}
+				{foreach $stulist as $key => $vo}
 					<tr class="text-c">
 						<td><input type="checkbox" value="{$vo.id}" name=""></td>
 						<td>{$vo.id}</td>
@@ -89,7 +89,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4"></div>
-					<div class="col-md-4">{$list->render()}</div>
+					<div class="col-md-4">{$stulist->render()}</div>
 					<div class="col-md-4"></div>
 				</div>
 			</div>
