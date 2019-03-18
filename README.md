@@ -5,11 +5,11 @@ sql文件是edu.sql,运行项目前请先导入sql文件，配置application目�
 
 开发计划：<br />
 &nbsp;&nbsp;&nbsp;&nbsp;1、登录模块；(已完成)<br />
-	![登录](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-Login.png)
+	![登录](C:\myphp_www\PHPTutorial\WWW\ThinkEDU\images\ThinkEDU-Login.png)
 &nbsp;&nbsp;2、首页；（已完成） <br />
 
-![首页](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-Index.png)
+![首页](C:\myphp_www\PHPTutorial\WWW\ThinkEDU\images\ThinkEDU-Index.png)
 
 &nbsp;&nbsp;&nbsp;3、学生管理；（开发中）
 
-![学生](C:\myphp_www\PHPTutorial\WWW\ThinkEDU1\images\ThinkEDU-stulist.png)
+![学生](C:\myphp_www\PHPTutorial\WWW\ThinkEDU\images\ThinkEDU-stulist.png)
